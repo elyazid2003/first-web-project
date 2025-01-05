@@ -1,0 +1,123 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Playwrite GB S";
+  
+}
+
+body{
+   
+  background-color: aliceblue;
+  background-size: cover;
+  min-height: 100vh;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: auto;
+  
+
+}
+
+.logo{
+  width: 150px;
+}
+
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(173, 216, 230, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  padding: 20px 100px;
+}
+
+/*parent*/
+.navbar a { 
+font-size: 18px;
+font-style: italic;
+color: rgb(1, 39, 77);
+text-decoration: none;
+margin-left: 20px;
+position: relative;
+
+}
+
+/* la notion de Before permet d'ajouter soit du texte ou bien une figure (carré -rectangle...) avant l'élément qu'on a séléctionné  */
+/* on doit toujours avoir le "content" son role et de contenir le texte qu'on veut ajouter avant l'element ; sinon dans le cas d'une figure il doit rester vide */
+
+/* 1ere étape : on commance par présicer le width et le height de la figure qu'on veut ajouter , il dependent de la taille de l'element cad si on donne un width de 100%
+  on doit se poser la question 100% par rapport à quoi? 100% par rapport à la taille de l'élément 
+  
+  2eme etape : la postion de la figure on donne à before la postion absolute et a son parent la position relative pour que la figure se deplace par rapport au parent 
+  
+  */
+
+/*fils*/
+.navbar a::before{
+  content: '';
+  position: absolute;
+  background-color: rgb(0, 51, 102);
+  width: 0;
+  height: 2px;
+  top: 100%;
+  left: 0;
+  transition: .3s;
+}
+
+.navbar a:hover::before{
+  width: 100%;
+
+}
+
+
+table{
+  position: absolute;
+  top: 16%;
+  border-collapse: collapse;
+   margin-left: 130px;
+   box-shadow: 3px 4px 4px rgb(0, 51, 102);
+   overflow: hidden;
+
+}
+
+td img{
+  width: 270px;
+  margin: 3px;
+  border: 0.5px solid black;
+  cursor: pointer;
+}
+
+td,th{
+  border: 2px solid rgb(1, 39, 77);
+  padding: 8px;
+}
+
+table td,th{
+  text-align: center;
+}
+
+th{
+  color: rgb(1, 39, 77);
+  text-shadow: 1px 1px 3px rgba(1, 39, 77, 0.5);
+  font-style: italic;
+}
+
+.ville{
+  font-weight: bolder;
+  font-style: italic;
+}
+
+td img {
+  transition: transform 0.3s ease;
+  
+}
+
+td img:hover {
+  transform: scale(1.4);
+}
+
+

@@ -1,0 +1,507 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Playwrite GB S";
+}
+
+body{
+  background-image: url('pictures/background.webp');
+  background-size: cover;
+  min-height: 100vh;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: auto;
+
+}
+
+.logo{
+  width: 150px;
+}
+
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(173, 216, 230, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  padding: 20px 100px;
+}
+
+/*parent*/
+.navbar a { 
+font-size: 18px;
+font-style: italic;
+color: rgb(1, 39, 77);
+text-decoration: none;
+margin-left: 20px;
+position: relative;
+
+}
+
+/* la notion de Before permet d'ajouter soit du texte ou bien une figure (carré -rectangle...) avant l'élément qu'on a séléctionné  */
+/* on doit toujours avoir le "content" son role et de contenir le texte qu'on veut ajouter avant l'element ; sinon dans le cas d'une figure il doit rester vide */
+
+/* 1ere étape : on commance par présicer le width et le height de la figure qu'on veut ajouter , il dependent de la taille de l'element cad si on donne un width de 100%
+  on doit se poser la question 100% par rapport à quoi? 100% par rapport à la taille de l'élément 
+  
+  2eme etape : la postion de la figure on donne à before la postion absolute et a son parent la position relative pour que la figure se deplace par rapport au parent 
+  
+  */
+
+/*fils*/
+.navbar a::before{
+  content: '';
+  position: absolute;
+  background-color: rgb(0, 51, 102);
+  width: 0;
+  height: 2px;
+  top: 100%;
+  left: 0;
+  transition: .3s;
+}
+
+.navbar a:hover::before{
+  width: 100%;
+
+}
+
+
+.navleft{
+  
+  display: flex;
+  width: 11%;
+  height: 100%;
+  background-color: rgba(173, 216, 230, 1) ;
+  flex-direction: column;
+  justify-content: center;
+  top : 0;
+  left: 0;
+  position: fixed;  
+  align-items: center;
+  
+}
+
+.a1{
+  margin-top: 140px;
+}
+
+
+.navleft a{
+  
+  color: rgb(0, 51, 102);
+  text-decoration: none;
+  font-size: 15px;
+  margin-bottom: 110px;
+  position: relative;
+  font-style: italic;
+}
+
+
+.navleft a::before{
+  content: '';
+  height: 2px;
+  width: 0;
+  position: absolute;
+  background-color: rgb(0, 51, 102);
+  left: 0;
+  top: 100%;
+  transition: .3s;
+}
+
+.navleft a:hover::before{
+  width: 100%;
+}
+
+.map{
+  width: 95%;
+  height: 180px;
+  margin-left: 4px;
+}
+
+.textcarte{
+  font-size: small;
+  text-indent: 15px;
+  color: rgb(1, 39, 77);
+  margin-bottom: 6px ; 
+}
+
+
+.newsletter .form{
+  margin-left: 10px;
+}
+
+.newsletterimage{
+  width: 320px;
+  margin-left: 30px;
+}
+
+.newsletter{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  border: 2px solid rgb(1, 39, 77);
+  padding: 20px;
+  background-color: rgba(173, 216, 230, 0.9);
+  overflow: hidden;
+  
+}
+
+
+
+.form h2{
+  font-family: 'Dancing Script', cursive; 
+  font-size: 32px;
+}
+.form h2,label{
+  text-align: center;
+  font-style: italic;
+  color: rgb(1, 39, 77);
+  font-weight: bold;
+  
+}
+
+
+
+.form input{
+  width: 250px;
+  height: 30px;
+  padding-left: 5px;
+  margin-bottom: 15px;
+}
+
+#nlsubmitbut, .connectnewsletter {
+  width: 120px; /* Largeur uniforme pour les boutons */
+  height: 40px;
+  padding: 5px;
+  background-color: rgb(1, 39, 77);
+  border: 1px solid rgb(1, 39, 77);
+  border-radius: 18px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none; /* Enlève le soulignement pour le lien */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#nlsubmitbut:hover{
+  opacity: 0.8;
+  transition: opacity .4s;
+}
+
+#nlsubmitbut:active{
+  opacity: .5;
+  transition: opacity .4s;
+}
+
+.connectnewsletter:hover{
+  opacity: 0.8;
+  transition: opacity .4s;
+}
+
+.connectnewsletter:active{
+  opacity: .5;
+  transition: opacity .4s;
+}
+
+
+.parent{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row-reverse;
+  width: 100%;
+  gap: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+  
+}
+
+
+.newsletter{
+  width: 50%;
+  height: 350px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.actualites{
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.actualites{
+ 
+  padding: 20px;
+  background-color: rgba(173, 216, 230, 0.95);
+  border: 2px solid rgb(1, 39, 77);
+  overflow-y: scroll;
+  height: 350px;
+}
+
+.actualites h2{
+  color: rgb(1, 39, 77);
+  
+  text-align: center;
+  font-family: 'Dancing Script', cursive; 
+  font-size: 32px;
+  
+}
+
+.actualites table{
+  margin-top: 20px;
+  border-collapse: collapse;
+  margin-left: 17px;
+}
+
+
+.actualites th{
+  color: rgb(1, 39, 77);
+  font-weight: bold;
+
+}
+
+
+.actualites td,th{
+  border: 2px solid rgb(1, 39, 77);
+  padding: 10px;
+  text-align: center;
+  width: 280px;
+  font-style: italic;
+}
+
+
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Aligne les boutons au centre */
+  gap: 10px; /* Espacement entre les boutons */
+  margin-top: 18px; /* Ajustement de l'espace avec les champs */
+}
+
+/*
+.intro{
+  border: 1px solid black;
+  
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 80%;
+  position: absolute;
+  left: 9%;
+  top: 18%;
+  width: 90%;
+}
+
+.video{
+  border: 1px solid black;
+  padding: 5px;
+  
+}
+
+.introduction{
+  border: 1px solid black;
+  padding: 5px;
+  order: -1;
+}
+
+*/
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 85%;
+  position: absolute;
+  top: 20%;
+  left: 13%;
+  gap: 35px;
+  padding: 5px;
+}
+
+.intro{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row-reverse;
+  padding: 8px;
+  width: 100%;
+  border: 2px solid rgb(1, 39, 77);
+  background-color: rgba(173, 216, 230, 0.9);
+  justify-content: space-between;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ytvideo{
+  
+  margin-right: 7px;
+  
+}
+
+.ytvideo iframe{
+  border-radius: 12px;
+}
+
+.introtext{
+  
+  width: 50%;
+  text-align: center;
+  margin-left: 60px;
+}
+
+.introtext p{
+  line-height: 38px;
+  font-weight: bold;
+  color: rgb(1, 39, 77);
+  font-style: italic;
+}
+
+
+.greece{
+  width: 100%;
+  background-color: transparent;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  padding: 5px;
+  
+  margin-bottom: 40px;
+}
+
+.gimage{
+  
+  padding:5px ;
+  margin-left: 100px;
+  
+}
+
+.gimage img{
+  width: 420px;
+}
+
+.gtext{
+  border: 1px;
+  
+  padding: 5px;
+  align-self: center;
+}
+
+.gtext p{
+  font-family: 'Dancing Script', cursive; 
+  font-style: italic;
+  font-size: 160px;
+  color: rgb(1, 39, 77);
+  font-weight: bolder;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3), -2px -2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.ending{
+  background-color: rgb(1, 39, 77);
+  color: white;
+  display: inline;
+  border: 1px solid white;
+  padding: 5px;
+  width: 560px;
+  align-self: center;
+  font-style: italic;
+
+}
+
+
+.galerie{
+   
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+    gap: 20px ;
+   width: 100%;
+   
+   justify-content: space-evenly;
+
+}
+
+
+.galerie img{
+  width: 350px;
+  height: 210px;
+  border-radius: 5px;
+  border: 1px solid whitesmoke;
+}
+
+.pic{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  gap: 5px;
+  align-self: center;
+  
+}
+
+.pic .txt{
+  align-self: center;
+  color: rgb(0, 51, 102);
+  font-weight: bold;
+  font-style: italic;
+}
+
+
+.galerie img {
+  transition: transform 0.3s ease;
+  
+}
+
+.galerie img:hover {
+  transform: scale(1.4);
+}
+
+
+
+.partiegalerie{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100%;
+  background-color: rgba(173, 216, 230, 0.9);
+  border-radius: 10px;
+  border: 2px solid rgb(1, 39, 77);
+  gap: 20px;
+  padding: 20px;
+}
+
+.partiegalerie .h2{
+  
+  align-self: center;
+}
+
+
+.h2 h2{
+  font-family: 'Dancing Script', cursive; 
+  font-size: 40px;
+  
+}
+
+
+
+.actualites a{
+  text-decoration: none;
+  
+}
+
+
+.actualites a:hover{
+  text-decoration: underline;
+  color:rgb(1, 39, 77);
+  font-size: 18px;
+  transition:font-size .2s ;
+}

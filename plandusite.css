@@ -1,0 +1,199 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Playwrite GB S";
+}
+
+body{
+  /* background: url('pictures/background.webp') no-repeat; */
+  background-color: aliceblue;
+  background-size: cover;
+  min-height: 100vh;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: auto;
+  
+
+}
+
+.logo{
+  width: 150px;
+}
+
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(173, 216, 230, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  padding: 20px 100px;
+}
+
+/*parent*/
+.navbar a { 
+font-size: 18px;
+font-style: italic;
+color: rgb(1, 39, 77);
+text-decoration: none;
+margin-left: 20px;
+position: relative;
+
+}
+
+/* la notion de Before permet d'ajouter soit du texte ou bien une figure (carré -rectangle...) avant l'élément qu'on a séléctionné  */
+/* on doit toujours avoir le "content" son role et de contenir le texte qu'on veut ajouter avant l'element ; sinon dans le cas d'une figure il doit rester vide */
+
+/* 1ere étape : on commance par présicer le width et le height de la figure qu'on veut ajouter , il dependent de la taille de l'element cad si on donne un width de 100%
+  on doit se poser la question 100% par rapport à quoi? 100% par rapport à la taille de l'élément 
+  
+  2eme etape : la postion de la figure on donne à before la postion absolute et a son parent la position relative pour que la figure se deplace par rapport au parent 
+  
+  */
+
+/*fils*/
+.navbar a::before{
+  content: '';
+  position: absolute;
+  background-color: rgb(0, 51, 102);
+  width: 0;
+  height: 2px;
+  top: 100%;
+  left: 0;
+  transition: .3s;
+}
+
+.navbar a:hover::before{
+  width: 100%;
+
+}
+
+
+.navleft{
+  
+  display: flex;
+  width: 11%;
+  height: 100%;
+  background-color: rgba(173, 216, 230, 1) ;
+  flex-direction: column;
+  justify-content: center;
+  top : 0;
+  left: 0;
+  position: fixed;  
+  align-items: center;
+  
+}
+
+.a1{
+  margin-top: 140px;
+}
+
+
+.navleft a{
+  
+  color: rgb(0, 51, 102);
+  text-decoration: none;
+  font-size: 15px;
+  margin-bottom: 110px;
+  position: relative;
+  font-style: italic;
+}
+
+
+.navleft a::before{
+  content: '';
+  height: 2px;
+  width: 0;
+  position: absolute;
+  background-color: rgb(0, 51, 102);
+  left: 0;
+  top: 100%;
+  transition: .3s;
+}
+
+.navleft a:hover::before{
+  width: 100%;
+}
+
+.map{
+  width: 95%;
+  height: 180px;
+  margin-left: 4px;
+}
+
+.textcarte{
+  font-size: small;
+  text-indent: 15px;
+  color: rgb(1, 39, 77);
+  margin-bottom: 6px ; 
+}
+
+.parent {
+  display: flex;
+  flex-wrap: wrap; /* Permet le retour à la ligne */
+  justify-content: space-between; /* Équilibre l'espace entre les images */
+  width: 70%;
+  position: absolute;
+  left: 20%;
+  top: 23%;
+  gap: 20px; /* Espacement entre les images */
+  
+}
+
+.parent .d1, .parent .d2, .parent .d3 {
+  position: relative;
+  overflow: hidden;
+  flex: 0 1 calc(50% - 10px); /* Deux images par ligne, avec un espace entre elles */
+  box-sizing: border-box; /* S'assure que les marges sont incluses dans la largeur totale */
+}
+
+.parent img {
+  width: 100%; /* L'image occupe toute la largeur du conteneur */
+  height: 100%; /* Maintient les proportions de l'image */
+  transition: transform 0.3s ease;
+  border-radius: 15px;
+  border: 1px solid white;
+}
+
+.parent img:hover {
+  transform: scale(1.1); /* Effet de zoom au survol */
+}
+
+.parent .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 16px;
+  text-align: center;
+}
+
+.parent .d1:hover .overlay, 
+.parent .d2:hover .overlay, 
+.parent .d3:hover .overlay {
+  opacity: 0.9;
+  border-radius: 15px;
+}
+
+.ending{
+  border: 1px solid white;
+  padding: 5px;
+  
+  position: fixed;
+  bottom: 0;
+  right: 30%;
+  background-color: rgb(1, 39, 77);
+  color: white;
+}

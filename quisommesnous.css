@@ -1,0 +1,138 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Playwrite GB S";
+}
+
+body{
+  background-color: aliceblue;
+  
+  background-size: cover;
+  min-height: 100vh;
+  background-position: center;
+  background-attachment: fixed;
+  
+
+}
+
+.logo{
+  width: 150px;
+}
+
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(173, 216, 230, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  padding: 20px 100px;
+}
+
+/*parent*/
+.navbar a { 
+font-size: 18px;
+font-style: italic;
+color: rgb(1, 39, 77);
+text-decoration: none;
+margin-left: 20px;
+position: relative;
+
+}
+
+/* la notion de Before permet d'ajouter soit du texte ou bien une figure (carré -rectangle...) avant l'élément qu'on a séléctionné  */
+/* on doit toujours avoir le "content" son role et de contenir le texte qu'on veut ajouter avant l'element ; sinon dans le cas d'une figure il doit rester vide */
+
+/* 1ere étape : on commance par présicer le width et le height de la figure qu'on veut ajouter , il dependent de la taille de l'element cad si on donne un width de 100%
+  on doit se poser la question 100% par rapport à quoi? 100% par rapport à la taille de l'élément 
+  
+  2eme etape : la postion de la figure on donne à before la postion absolute et a son parent la position relative pour que la figure se deplace par rapport au parent 
+  
+  */
+
+/*fils*/
+.navbar a::before{
+  content: '';
+  position: absolute;
+  background-color: rgb(0, 51, 102);
+  width: 0;
+  height: 2px;
+  top: 100%;
+  left: 0;
+  transition: .3s;
+}
+
+.navbar a:hover::before{
+  width: 100%;
+
+}
+
+.parent{
+  position: absolute;
+  top: 20%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+  
+}
+
+.yazid,.zouhir{
+  border: 2px solid black;
+  background-color: rgba(173, 216, 230, 0.9);
+  padding: 8px;
+  width: 48%;
+  box-shadow: 3px 3px 5px rgb(1, 39, 77);
+  border-radius: 10px;
+  
+}
+
+.photo{
+  width: 200px;
+  margin-left: 5px;
+}
+
+h3{
+  text-align: center;
+  font-style: italic;
+  text-shadow: 1px 1px 2px rgb(0, 51, 102);
+}
+
+.sousparent{
+  margin-top: 15px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 20px;
+  
+}
+
+.icons img{
+  float: right;
+}
+
+
+ul{
+  list-style-position: inside;
+}
+
+
+
+.ending{
+  margin-top: 20px ;
+  background-color: rgb(1, 39, 77);
+  color: white;
+  display: inline;
+  border: 1px solid white;
+  padding: 5px;
+  width: 560px;
+  align-self: center;
+  font-style: italic;
+
+}
+
